@@ -1,6 +1,9 @@
 import sys
 
 def read_parsed_data(filename, mode):
+    """
+    Read input file on CoNLL-X format and create sentence dictionaries. 
+    """
     with open(filename, 'r') as infile:
         sentence = {}
         counter = 0
@@ -39,6 +42,9 @@ def read_parsed_data(filename, mode):
     return instances
             
 def read_cuepredicted_data(filename, mode):
+    """
+    Read file with predicted cues and create sentence dictionaries for scopes
+    """
     if mode == 'raw':
         lower_limit = 4
         upper_limit = 6

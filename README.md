@@ -22,4 +22,4 @@ Run the tool with the command
 
 ## Output
 
-The output is a file with cues and scopes encoded in the CD format. 
+The output is a file with cues and scopes encoded in the CD format. The name of the file is the same as the name of the input file, but with the extension `.neg` instead of the original file extension. 

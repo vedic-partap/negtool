@@ -1,6 +1,10 @@
 import numpy as np
 
 def read_file(filename, conll_filename):
+    """
+    Read input file and make dictionaries for each sentence. 
+    Used for training with the CD dataset.
+    """
     with open(filename, 'r') as infile1, open(conll_filename) as infile2:
         sentence = {}
         cues = []

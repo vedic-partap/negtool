@@ -10,7 +10,6 @@ from utils import *
 
 def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode='training'):
     instances = []
-    #wordlist = words.words()
     for sent in sentence_dicts:
         for key, value in sent.iteritems():
             features = {}
@@ -40,23 +39,15 @@ def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode=
                     features['char-3gram1'], features['char-3gram2'] = get_character_ngrams(base, affix, 3)
                     features['char-2gram1'], features['char-2gram2'] = get_character_ngrams(base, affix, 2)
                     features['char-1gram1'], features['char-1gram2'] = get_character_ngrams(base, affix, 1)
-
                     features['affix'] = affix
-                    #if base in wordlist:
-                    #    features['valid-base'] = 1
-                    #else:
-                    #    features['valid-base'] = 0
                 else:
                     features['char-5gram1'], features['char-5gram2'] = 'null','null'
                     features['char-4gram1'], features['char-4gram2'] = 'null','null'
                     features['char-3gram1'], features['char-3gram2'] = 'null','null'
                     features['char-2gram1'], features['char-2gram2'] = 'null','null'
                     features['char-1gram1'], features['char-1gram2'] = 'null','null'
-
                     features['affix'] = 'null'
                     
-                    #features['valid-base'] = 'null'
-
                 instances.append(features)
     if mode == 'training':
         labels = extract_labels_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon)
@@ -77,8 +68,7 @@ def extract_labels_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon):
                     labels.append(-1)
     return labels
                 
-def extract_features_scope(sentence_dicts, filename, conll_filename, mode='training'):
-    #sentence_dicts = read_file(filename, conll_filename)
+def extract_features_scope(sentence_dicts, mode='training'):
     instances = []
     sentence_splits = []
     for sent in sentence_dicts:

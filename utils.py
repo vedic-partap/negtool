@@ -55,12 +55,6 @@ def get_shortest_path(graph, sentence, cue_index, curr_index):
     try:
         path_list = nx.dijkstra_path(graph, str(cue_head), str(curr_index))
         return make_discrete_distance(len(path_list) - 1)
-        """
-        shortest_path = ""
-        for node in path_list:
-            shortest_path += "%s_" %node
-        return shortest_path.rstrip("_")
-        """
     except nx.NetworkXNoPath:
         return 'null'
 
@@ -85,6 +79,9 @@ def get_dep_graph_path(graph, sentence, cue_index, curr_index):
 
 
 def get_cue_lexicon(sentence_dicts):
+    """
+    Extracts cue lexicon and affixal cue lexicon from the sentence dictionary structure
+    """
     cue_lexicon = {}
     affixal_cue_lexicon = {'prefixes': [], 'suffixes': [], 'infixes': []}
     for sent in sentence_dicts:
@@ -107,17 +104,7 @@ def get_cue_lexicon(sentence_dicts):
 
 def get_character_ngrams(word, affix, m):
     n = len(word)
-    #start_5gram = "%s-%s-%s" %(pos, affix, word[0:m])
-    #end_5gram = "%s-%s-%s" %(pos, affix, word[(n-m):])
-    #return start_5gram, end_5gram
     return word[0:m], word[(n-m):]
-    """
-    for i in range(m,0,-1):
-        start_5gram += "%s_" %word[0:i].lower()
-        end_5gram += "%s_" %word[(n-i):].lower()
-
-
-    """
 
 def check_by_no_means(sentence, index):
     if index == 0:
@@ -146,6 +133,10 @@ def find_nor_index(sentence):
     return -1
 
 def make_complete_labelarray(sentences, labels):
+    """
+    Make nested label array where each label array matches the length of the sentences.
+    I.e. make labels for the words that were not predicted by the cue classifier
+    """
     y = []
     label_counter = 0
     for sent in sentences:
@@ -164,11 +155,17 @@ def make_complete_labelarray(sentences, labels):
     return y
 
 def check_mw_start(token, prev_token):
+    """
+    Check if the current token is part of a multiword cue
+    """
     mw_lexicon = ['neither', 'by', 'rather', 'on']
     
     return any(token.lower() == w for w in mw_lexicon) or (prev_token == "by" and token == "no")
 
 def make_splits(X, y, splits):
+    """
+    Split the labels from the scope prediction into nested arrays that match the sentences
+    """
     i = 0
     j = 0
     X_train = []
@@ -184,22 +181,19 @@ def make_splits(X, y, splits):
     return np.asarray(X_train), np.asarray(y_train)
 
 def convert_to_IO(y):
+    """
+    Converts beginning of scope (2) and cue (3) labels into inside (0) and outside (1) of scope
+    """
     for i in range(len(y)):
         if y[i] == 2:
             y[i] = 0
-        elif y[i] == 3 or y[i] == 4:
+        elif y[i] == 3:
             y[i] = 1
     return y
 
 def count_multiword_cues(sentence, labels):
     mwc_counter = 0
     has_mwc = False
-    """
-    for key,value in sentence.iteritems():
-        if isinstance(key, int):
-            if check_mw_start(value[3]) and labels[key] > 0:
-                mwc_counter += 1
-    """
     for key,value in sentence.iteritems():
         if isinstance(key,int):
             if check_by_no_means(sentence, key):
