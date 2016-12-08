@@ -49,7 +49,11 @@ def convert_cues_to_fileformat(sentences, labels, affix_cue_lexicon, filename, m
                                 written_cues[cue_i] = True
                             else:
                                 outfile.write("%s\t_\t_\t" %tokens[1])
-                                prev_token = sentences[sent_counter][line_counter-1][1].lower() if line_counter > 0 else 'null'
+                                print "sent_counter:", sent_counter
+                                print "line_counter-1:", line_counter-1
+                                if line_counter > 0:
+                                    print sentences[sent_counter][line_counter-1]
+                                prev_token = sentences[sent_counter][line_counter-1][3].lower() if line_counter > 0 else 'null'
                                 if not check_mw_start(tokens[1].lower(), prev_token):
                                     written_cues[cue_i] = True
                             written_cue_on_line = True
@@ -86,8 +90,8 @@ def convert_list_to_fileformat(sentences, labels, mode):
             for cue_i in range(n_cues):
                 outfile.write("%s\t" %tokens[upper_limit + 3*cue_i]) #skriver gull-cue. 7 for cdd
                 #skriver scope. nb tokens[3] for cdd
-                if labels[scope_counter][line_counter] == 0 or labels[scope_counter][line_counter] == 2:
-                    if cues[cue_i][2] == 'a' and sent[int(cues[cue_i][1])][1] == tokens[1]:
+                if labels[scope_counter][line_counter] == 0 or labels[scope_counter][line_counter] == 2 or (labels[scope_counter][line_counter] == 3 and cues[cue_i][2] == 'a'):
+                    if cues[cue_i][2] == 'a' and sent[int(cues[cue_i][1])][3] == tokens[1]:
                         outfile.write("%s\t" %(tokens[1].replace(cues[cue_i][0], ""))) #nb tokens[3] for cdd
                     elif tokens[upper_limit + 3*cue_i] != "_": #nb endre til 7 for cdd
                         outfile.write("_\t")
