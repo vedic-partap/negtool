@@ -49,10 +49,6 @@ def convert_cues_to_fileformat(sentences, labels, affix_cue_lexicon, filename, m
                                 written_cues[cue_i] = True
                             else:
                                 outfile.write("%s\t_\t_\t" %tokens[1])
-                                print "sent_counter:", sent_counter
-                                print "line_counter-1:", line_counter-1
-                                if line_counter > 0:
-                                    print sentences[sent_counter][line_counter-1]
                                 prev_token = sentences[sent_counter][line_counter-1][3].lower() if line_counter > 0 else 'null'
                                 if not check_mw_start(tokens[1].lower(), prev_token):
                                     written_cues[cue_i] = True
@@ -62,7 +58,7 @@ def convert_cues_to_fileformat(sentences, labels, affix_cue_lexicon, filename, m
     infile.close()
     outfile.close()
 
-def convert_list_to_fileformat(sentences, labels, mode):
+def convert_scopes_to_fileformat(sentences, labels, mode):
     #infile = open("../data/gold/cde.txt", "r")
     infile2 = open("system_cdd_cues.txt", "r")
     outfile = open("system_cdd.txt", "w")

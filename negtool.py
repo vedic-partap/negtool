@@ -56,7 +56,7 @@ def run_scope_learner(scope_ssvm, scope_vectorizer, mode):
     print "Number of sentences:", len(sentences)
     X_dev, y_dev = make_splits(dev_fvs, [], dev_splits)
     y_pred = scope_ssvm.predict(X_dev)
-    convert_list_to_fileformat(sentences, y_pred, mode)
+    convert_scopes_to_fileformat(sentences, y_pred, mode)
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
