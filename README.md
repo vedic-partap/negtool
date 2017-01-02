@@ -1,6 +1,13 @@
 # negtool
 A tool for detecting negation cues and scopes in natural language text.
 
+## Dependencies
+In order to use negtool, the following libraries need to be installed:
+   * numpy
+   * scikit-learn
+   * pystruct
+   * networkx
+
 ## Running the tool with raw text
 To run negtool with raw text, you need to have CoreNLP installed. Run the tool with the command
 

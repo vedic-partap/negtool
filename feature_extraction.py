@@ -9,6 +9,11 @@ from data_processing import read_file
 from utils import *
 
 def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode='training'):
+    """
+    Extracts features for the cue classifier from the sentence dictionaries.
+    Returns (modified) sentence dictionaries, a list of feature dictionaries, and
+    if called in training mode, a list of labels. 
+    """
     instances = []
     for sent in sentence_dicts:
         for key, value in sent.iteritems():
@@ -56,6 +61,11 @@ def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode=
 
 
 def extract_labels_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon):
+    """
+    Extracts labels for training the cue classifier. Skips the words that are not
+    known cue words. For known cue words, label 1 means cue and label -1 means non
+    cue. Returns a list of integer labels. 
+    """
     labels = []
     for sent in sentence_dicts:
         for key, value in sent.iteritems():
@@ -69,6 +79,11 @@ def extract_labels_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon):
     return labels
                 
 def extract_features_scope(sentence_dicts, mode='training'):
+    """
+    Extracts features for the scope classifier from the sentence dictionaries.
+    Returns (modified) sentence dictionaries, a list of feature dictionaries,
+    a list of the sentence lengths, and if called in training mode, a list of labels.
+    """
     instances = []
     sentence_splits = []
     for sent in sentence_dicts:
@@ -133,6 +148,15 @@ def extract_features_scope(sentence_dicts, mode='training'):
     return sentence_dicts, instances, sentence_splits
 
 def extract_labels_scope(sentence_dicts, config):
+    """
+    Extracts labels for training the scope classifier. Skips the sentences that
+    do not contain a cue. Label values:
+    In-scope: 0
+    Out of scope: 1
+    Beginning of scope: 2
+    Cue: 3
+    Returns a list of labels.
+    """
     labels = []
     for sent in sentence_dicts:
         if not sent['neg']:
