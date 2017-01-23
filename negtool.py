@@ -2,7 +2,7 @@ from pystruct.utils import SaveLogger
 import pickle
 import sys
 import argparse
-import os.path
+from os import remove, path
 from sklearn.externals import joblib
 
 from input_output import *
@@ -83,14 +83,14 @@ if __name__ == '__main__':
     args = argparser.parse_args()
 
     filename = args.filename
-    if not os.path.isfile(filename):
+    if not path.isfile(filename):
         print "ERROR: File does not exist. Program will exit"
         sys.exit(1)
     if args.mode == 'raw':
         path_to_corenlp = args.directory
         if args.directory == None:
             path_to_corenlp = raw_input("Absolute path to CoreNLP directory:")
-        elif not os.path.exists(args.directory):
+        elif not path.exists(args.directory):
             path_to_corenlp = raw_input("ERROR: You specified the wrong path. Please specify the right path: ")
         run_corenlp(path_to_corenlp, args.filename)
         filename = args.filename + ".conll"
@@ -99,3 +99,4 @@ if __name__ == '__main__':
     cue_file = filename.split(".")[0] + "_cues.neg"
     scope_ssvm, scope_vectorizer = load_scope_learner()
     run_scope_learner(scope_ssvm, scope_vectorizer, cue_file, args.mode)
+    remove(cue_file)
