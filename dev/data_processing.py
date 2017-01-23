@@ -105,9 +105,9 @@ if __name__ == '__main__':
         if sentence['neg']:
            negsent_counter += 1
 
-    print "Antall setninger:", sentence_counter
-    print "Antall negerte setninger:", negsent_counter
-    print "Antall cues:", cue_counter
-    print "Antall scopes:", scope_counter
-    print "Antall events:", event_counter
+    print "Number of sentences:", sentence_counter
+    print "Number of negated sentences:", negsent_counter
+    print "Number of cues:", cue_counter
+    print "Number of scopes:", scope_counter
+    print "Number of events:", event_counter
 

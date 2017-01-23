@@ -5,7 +5,6 @@ from pystruct.models import ChainCRF
 from pystruct.learners import FrankWolfeSSVM
 from nltk.corpus import words
 
-from data_processing import read_file
 from utils import *
 
 def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode='training'):
@@ -180,27 +179,4 @@ def extract_labels_scope(sentence_dicts, config):
                         labels.append(1)
                         prev_label = 1
     return labels
-
-if __name__ == '__main__':
-    sd, instances, labels, splits = extract_features_scope("../data/gold/cdt.txt", "../data/cdt_parsed.txt")
-    vectorizer = DictVectorizer()
-    fvs = vectorizer.fit_transform(instances).toarray()
-    X_train, y_train = make_splits(fvs, labels, splits)
-
-    model = ChainCRF()
-    ssvm = FrankWolfeSSVM(model=model, C=.1, max_iter=10)
-    ssvm.fit(X_train, y_train)
-    
-    sd, dev_instances, dev_labels, dev_splits = extract_features("../data/gold/cdd.txt", "../data/cdd_parsed.txt")
-    
-    dev_fvs = vectorizer.transform(dev_instances).toarray()
-    X_dev, y_dev = make_splits(dev_fvs, dev_labels, dev_splits)
-    dev_classes = np.asarray([0, 1, 2, 3])
-    y_pred = ssvm.predict(X_dev)
-
-    y_pred1 = np.asarray([e for innerlist in y_pred for e in innerlist])
-    y_dev1 = np.asarray([e for innerlist in y_dev for e in innerlist])
-    
-    fscore = metrics.f1_score(y_dev1, y_pred1, labels=dev_classes, average=None)
-    print "F1-score:", fscore
 

@@ -5,10 +5,8 @@ import argparse
 import os.path
 from sklearn.externals import joblib
 
-from data_processing import read_file
-from input_output import read_parsed_data, read_cuepredicted_data
+from input_output import *
 from feature_extraction import extract_features_scope, extract_features_cue 
-from parse_raw_files import run_corenlp
 from utils import *
 from evaluation import *
 
