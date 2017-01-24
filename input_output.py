@@ -2,6 +2,9 @@ import sys
 import subprocess
 
 def run_corenlp(corenlp_path, filename):
+    """
+    Run corenlp for file with raw text.
+    """
     with open(filename, 'r') as infile:
         line1 = infile.readline()
         line2 = infile.readline()
@@ -16,6 +19,7 @@ def run_corenlp(corenlp_path, filename):
 def read_parsed_data(filename, mode):
     """
     Read input file on CoNLL-X format and create sentence dictionaries. 
+    If file is parsed with corenlp, there will be 7 columns, not 8 as for conll-x. 
     """
     with open(filename, 'r') as infile:
         sentence = {}
@@ -59,12 +63,12 @@ def read_cuepredicted_data(filename, mode):
     Read file with predicted cues and create sentence dictionaries for scopes
     """
     if mode == 'raw':
-        lower_limit = 4
-        upper_limit = 6
+        lower_limit = 4 #end of columns with data that can be automatically copied
+        upper_limit = 6 #end of original data: next index is start of cue-column
     else:
-        lower_limit = 3
+        lower_limit = 3 
         upper_limit = 7
-    cue_offset = upper_limit - 5
+    cue_offset = upper_limit - 5 #to simplify modulo calculations
     with open(filename, 'r') as infile:
         sentence = {}
         cues = []
@@ -83,6 +87,7 @@ def read_cuepredicted_data(filename, mode):
             #check for sentence end
             if len(tokens) == 0:
                 for key in sentence:
+                    #store the head index and pos for each token in sentence
                     head_index = int(sentence[key]['head']) - 1
                     if head_index > -1:
                         sentence[key]['head-pos'] = sentence[head_index][5]
@@ -98,13 +103,11 @@ def read_cuepredicted_data(filename, mode):
                 sentence['mw_cues'] = mw_cues
                 sentence['scopes'] = scopes
                 sentence['events'] = events
-                    
                 if len(cues) > 0:
                     sentence['neg'] = True
                 else:
                     sentence['neg'] = False
 
-                #yield sentence
                 instances.append(sentence)
                 sentence = {}
                 counter = 0
@@ -118,16 +121,18 @@ def read_cuepredicted_data(filename, mode):
 
             for i in range(len(tokens)):            
                 if tokens[i] != "_" and i < lower_limit:
+                    #add an offset of 2 to make token dicts match the original CD dicts
                     token_dict[i+2] = tokens[i]
                 #cue column
                 elif tokens[i] != "***" and tokens[i] != "_" and i > upper_limit and (i-cue_offset) % 3 == 0:
                     if i == prev_cue_column:
+                        #same column has another cue token. cue must be mw
                         cues[-1][2] = 'm'
                         prev_cue_column = i
-                        if cues[-1][2] == 'm':
-                            mw_cues.append([cues[-1][0],cues[-1][1]])
+                        mw_cues.append([cues[-1][0],cues[-1][1]])
                         mw_cues.append([tokens[i], counter])
                     elif tokens[i] != tokens[1]:
+                        #cue does not match current token. must be affixal cue
                         cues.append([tokens[i], counter, 'a'])
                         prev_cue_column = i
                     else:
@@ -140,6 +145,7 @@ def read_cuepredicted_data(filename, mode):
                         scopes[cue_counter].append([tokens[i], counter])
                     else:
                         scopes[cue_counter] = [[tokens[i], counter]]
+                #event column
                 elif tokens[i] != "***" and tokens[i] != "_" and i > upper_limit and (i-cue_offset-2) % 3 == 0:
                     cue_counter = (i-upper_limit+3)/3
                     events[cue_counter] = tokens[i]
@@ -148,7 +154,7 @@ def read_cuepredicted_data(filename, mode):
                 token_dict['head'] = tokens[5]
                 token_dict['deprel'] = tokens[6]
             else:
-                token_dict[5] = tokens[4]
+                token_dict[5] = tokens[4] #record only the pos-tag, not cpos-tag for conll-x data
                 token_dict['head'] = tokens[6]
                 token_dict['deprel'] = tokens[7]
 

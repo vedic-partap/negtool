@@ -31,29 +31,11 @@ def load_scope_learner():
     scope_vectorizer = joblib.load("objectfiles/scope_vectorizer.pkl")
     return scope_ssvm, scope_vectorizer
 
-def save_cue_learner():
-    """
-    Saves the cue learner object, the cue vectorizer, the cue lexicon
-    and the affixal cue lexicon to files
-    """
-    cue_ssvm, cue_vectorizer, cue_lexicon, affixal_cue_lexicon = cue_detection(0.20)
-    pickle.dump(cue_ssvm, open("cue_model.pkl", "wb"))
-    joblib.dump(cue_vectorizer, 'cue_vectorizer.pkl')
-    pickle.dump(cue_lexicon, open("cue_lexicon.pkl", "wb"))
-    pickle.dump(affixal_cue_lexicon, open("affixal_cue_lexicon.pkl", "wb"))
-
-def save_scope_learner():
-    """Saves the scope learner object and the scope vectorizer object to files"""
-    scope_ssvm, scope_vectorizer = scope_resolution(0.10,10)
-    pickle.dump(scope_ssvm, open("scope_model.pkl", "wb"))
-    joblib.dump(scope_vectorizer, 'scope_vectorizer.pkl')
-
 def run_cue_learner(cue_ssvm, cue_vectorizer, cue_lexicon, affixal_cue_lexicon, filename, mode):
     """
     Reads the file with the input data, extracts features for cue detection,
     does cue prediction and converts the predicted cues to the CD file format
     """
-
     dev_sentence_dicts = read_parsed_data(filename, mode)
     dev_sd, dev_instances = extract_features_cue(dev_sentence_dicts, cue_lexicon, affixal_cue_lexicon, 'prediction')
     dev_fvs = cue_vectorizer.transform(dev_instances).toarray()
@@ -70,7 +52,6 @@ def run_scope_learner(scope_ssvm, scope_vectorizer, filename, mode):
     sentence_dicts = read_cuepredicted_data(filename, mode)
     sentences, dev_instances, dev_splits = extract_features_scope(sentence_dicts, 'prediction')
     dev_fvs = scope_vectorizer.transform(dev_instances).toarray()
-    print "Number of sentences:", len(sentences)
     X_dev, y_dev = make_splits(dev_fvs, [], dev_splits)
     y_pred = scope_ssvm.predict(X_dev)
     convert_scopes_to_fileformat(sentences, y_pred, filename, mode)
@@ -91,7 +72,7 @@ if __name__ == '__main__':
         if args.directory == None:
             path_to_corenlp = raw_input("Absolute path to CoreNLP directory:")
         elif not path.exists(args.directory):
-            path_to_corenlp = raw_input("ERROR: You specified the wrong path. Please specify the right path: ")
+            path_to_corenlp = raw_input("ERROR: You specified the wrong path. Please specify the right path:")
         run_corenlp(path_to_corenlp, args.filename)
         filename = args.filename + ".conll"
     cue_ssvm, cue_vectorizer, cue_lexicon, affixal_cue_lexicon = load_cue_learner()

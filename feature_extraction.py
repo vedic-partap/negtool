@@ -18,7 +18,7 @@ def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode=
         for key, value in sent.iteritems():
             features = {}
             if isinstance(key, int):
-                if not value[3].lower() in cue_lexicon and get_affix_cue(value[3].lower(), affixal_cue_lexicon) == None: #only classify known cue words
+                if not known_cue_word(value[3].lower(), cue_lexicon, affixal_cue_lexicon):
                     sent[key]['not-pred-cue'] = True
                     continue
 
@@ -69,7 +69,7 @@ def extract_labels_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon):
     for sent in sentence_dicts:
         for key, value in sent.iteritems():
             if isinstance(key, int):
-                if not value[3].lower() in cue_lexicon and get_affix_cue(value[3].lower(), affixal_cue_lexicon) == None:
+                if not known_cue_word(value[3].lower(), cue_lexicon, affixal_cue_lexicon):
                     continue
                 if any(cue_position == key for (cue, cue_position, cue_type) in sent['cues']) or any(mw_pos == key for (mw_cue, mw_pos) in sent['mw_cues']):
                     labels.append(1)
@@ -97,9 +97,7 @@ def extract_features_scope(sentence_dicts, mode='training'):
                 if isinstance(key, int):
                     features['token'] = value[3]
                     features['lemma'] = value[4]
-
                     features['pos'] = value[5]
-
                     features['dir-dep-dist'] = get_shortest_path(graph, sent, cue_position, key)
                     features['dep-graph-path'] = get_dep_graph_path(bidir_graph, sent, cue_position, key)
 
@@ -107,12 +105,14 @@ def extract_features_scope(sentence_dicts, mode='training'):
                     nor_index = find_nor_index(sent)
                     if cue == "neither" and nor_index > -1 and abs(key-nor_index) < abs(dist):
                         dist = key - nor_index
+                    #token is to the left of cue
                     if dist < 0:
                         if abs(dist) <= 9:
                             features['left-cue-dist'] = 'A'
                         else:
                             features['left-cue-dist'] = 'B'
                         features['right-cue-dist'] = 'null'
+                    #token is to the right of cue
                     elif dist > 0:
                         if dist <= 15:
                             features['right-cue-dist'] = 'A'

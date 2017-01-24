@@ -77,7 +77,6 @@ def get_dep_graph_path(graph, sentence, cue_index, curr_index):
     except nx.NetworkXNoPath:
         return 'null'
 
-
 def get_cue_lexicon(sentence_dicts):
     """
     Extracts cue lexicon and affixal cue lexicon from the sentence dictionary structure
@@ -154,7 +153,7 @@ def make_complete_labelarray(sentences, labels):
         y.append(sent_labels)
     return y
 
-def check_mw_start(token, prev_token):
+def mwc_start(token, prev_token):
     """
     Check if the current token is part of a multiword cue
     """
@@ -211,3 +210,9 @@ def count_multiword_cues(sentence, labels):
                 labels[key] = 1
 
     return mwc_counter, has_mwc
+
+def known_cue_word(token, cue_lexicon, affixal_cue_lexicon):
+    return token in cue_lexicon and get_affix_cue(token, affixal_cue_lexicon) == None
+
+def in_scope_token(token_label, cue_type):
+    return token_label == 0 or token_label == 2 or (token_label == 3 and cue_type == 'a')
