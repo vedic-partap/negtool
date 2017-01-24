@@ -8,7 +8,7 @@ from pystruct.learners import FrankWolfeSSVM, NSlackSSVM
 from data_processing import read_file
 from feature_extraction import extract_features_scope, extract_features_cue 
 from utils import make_splits, get_cue_lexicon, print_cue_lexicons, make_complete_labelarray
-from evaluation import *
+from file_writing import *
 
 def cue_detection(C_value, train_file, train_file_parsed, config='training'):
     """ Extract sentence dictionaries, lexicons and features, then train the cue model"""
@@ -36,7 +36,7 @@ def scope_resolution(C_value, state_value, train_file, train_file_parsed, config
 
 def save_cue_learner(train_file, train_file_parsed):
     """
-    Saves the cue learner object, the cue vectorizer, the cue lexicon
+    Save the cue learner object, the cue vectorizer, the cue lexicon
     and the affixal cue lexicon to files
     """
     cue_ssvm, cue_vectorizer, cue_lexicon, affixal_cue_lexicon = cue_detection(0.20, train_file, train_file_parsed)
@@ -46,7 +46,7 @@ def save_cue_learner(train_file, train_file_parsed):
     pickle.dump(affixal_cue_lexicon, open("affixal_cue_lexicon.pkl", "wb"))
 
 def save_scope_learner(train_file, train_file_parsed):
-    """Saves the scope learner object and the scope vectorizer object to files"""
+    """Save the scope learner object and the scope vectorizer object to files"""
     scope_ssvm, scope_vectorizer = scope_resolution(0.10, 10, train_file, train_file_parsed)
     pickle.dump(scope_ssvm, open("scope_model.pkl", "wb"))
     joblib.dump(scope_vectorizer, 'scope_vectorizer.pkl')

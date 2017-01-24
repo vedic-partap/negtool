@@ -5,10 +5,10 @@ import argparse
 from os import remove, path
 from sklearn.externals import joblib
 
-from input_output import *
+from file_reading import *
 from feature_extraction import extract_features_scope, extract_features_cue 
 from utils import *
-from evaluation import *
+from file_writing import *
 
 def load_cue_learner():
     """

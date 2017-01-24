@@ -176,7 +176,6 @@ def make_splits(X, y, splits):
         y_train.append(np.asarray(y[i:(i + offset)]))
         i += offset
         j += 1
-    print "Number of training instances:", len(X_train)
     return np.asarray(X_train), np.asarray(y_train)
 
 def convert_to_IO(y):
