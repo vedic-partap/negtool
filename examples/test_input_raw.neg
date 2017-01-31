@@ -1,0 +1,157 @@
+1	Suddenly	suddenly	RB	_	3	advmod	***
+2	he	he	PRP	_	3	nsubj	***
+3	turned	turn	VBD	_	0	ROOT	***
+4	upon	upon	IN	_	5	case	***
+5	me	I	PRP	_	3	nmod	***
+6	with	with	IN	_	9	case	***
+7	a	a	DT	_	9	det	***
+8	mischievous	mischievous	JJ	_	9	amod	***
+9	twinkle	twinkle	NN	_	3	nmod	***
+10	in	in	IN	_	12	case	***
+11	his	he	PRP$	_	12	nmod:poss	***
+12	eyes	eye	NNS	_	9	nmod	***
+13	.	.	.	_	3	punct	***
+
+1	No	no	DT	_	2	neg	No	_	_	
+2	woman	woman	NN	_	5	nsubj	_	woman	_	
+3	would	would	MD	_	5	aux	_	would	_	
+4	ever	ever	RB	_	5	advmod	_	ever	_	
+5	send	send	VB	_	0	ROOT	_	send	_	
+6	a	a	DT	_	8	det	_	a	_	
+7	reply-paid	reply-paid	JJ	_	8	amod	_	reply-paid	_	
+8	telegram	telegram	NN	_	5	dobj	_	telegram	_	
+9	.	.	.	_	5	punct	_	_	_	
+
+1	If	if	IN	_	7	mark	_	_	_	
+2	the	the	DT	_	3	det	_	the	_	
+3	corpus	corpus	NN	_	7	nsubjpass	_	corpus	_	
+4	can	can	MD	_	7	aux	_	can	_	
+5	not	not	RB	_	7	neg	not	_	_	
+6	be	be	VB	_	7	auxpass	_	be	_	
+7	found	find	VBN	_	14	advcl	_	found	_	
+8	,	,	,	_	14	punct	_	_	_	
+9	then	then	RB	_	10	advmod	_	_	_	
+10	accessing	access	VBG	_	14	csubj	_	_	_	
+11	this	this	DT	_	12	det	_	_	_	
+12	object	object	NN	_	10	dobj	_	_	_	
+13	will	will	MD	_	14	aux	_	_	_	
+14	raise	raise	VB	_	0	ROOT	_	_	_	
+15	an	a	DT	_	16	det	_	_	_	
+16	exception	exception	NN	_	14	dobj	_	_	_	
+17	,	,	,	_	14	punct	_	_	_	
+18	displaying	display	VBG	_	14	advcl	_	_	_	
+19	installation	installation	NN	_	20	compound	_	_	_	
+20	instructions	instruction	NNS	_	18	dobj	_	_	_	
+21	for	for	IN	_	25	case	_	_	_	
+22	the	the	DT	_	25	det	_	_	_	
+23	NLTK	NLTK	NNP	_	25	compound	_	_	_	
+24	data	datum	NNS	_	25	compound	_	_	_	
+25	package	package	NN	_	20	nmod	_	_	_	
+26	.	.	.	_	14	punct	_	_	_	
+
+1	It	it	PRP	_	7	nsubj	***
+2	is	be	VBZ	_	7	cop	***
+3	,	,	,	_	7	punct	***
+4	however	however	RB	_	7	advmod	***
+5	,	,	,	_	7	punct	***
+6	unfortunately	unfortunately	RB	_	7	advmod	***
+7	impossible	impossible	JJ	_	0	ROOT	***
+8	entirely	entirely	RB	_	7	advmod	***
+9	to	to	TO	_	10	mark	***
+10	separate	separate	VB	_	7	xcomp	***
+11	the	the	DT	_	12	det	***
+12	sentational	sentational	NN	_	10	dobj	***
+13	from	from	IN	_	15	case	***
+14	the	the	DT	_	15	det	***
+15	criminal	criminal	JJ	_	10	nmod	***
+16	.	.	.	_	7	punct	***
+
+1	It	it	PRP	_	6	nsubj	***
+2	was	be	VBD	_	6	cop	***
+3	a	a	DT	_	6	det	***
+4	blazing	blaze	VBG	_	6	amod	***
+5	hot	hot	JJ	_	6	amod	***
+6	day	day	NN	_	0	ROOT	***
+7	in	in	IN	_	8	case	***
+8	August	August	NNP	_	6	nmod	***
+9	.	.	.	_	6	punct	***
+
+1	But	but	CC	_	6	cc	***
+2	the	the	DT	_	4	det	***
+3	morning	morning	NN	_	4	compound	***
+4	paper	paper	NN	_	6	nsubj	***
+5	was	be	VBD	_	6	cop	***
+6	uninteresting	uninteresting	JJ	_	0	ROOT	***
+7	.	.	.	_	6	punct	***
+
+1	Everybody	everybody	NN	_	5	nsubj	***
+2	was	be	VBD	_	5	cop	***
+3	out	out	IN	_	5	case	***
+4	of	of	IN	_	5	case	***
+5	town	town	NN	_	0	ROOT	***
+6	,	,	,	_	5	punct	***
+7	and	and	CC	_	5	cc	***
+8	I	I	PRP	_	9	nsubj	***
+9	yearned	yearn	VBD	_	5	conj	***
+10	for	for	IN	_	12	case	***
+11	the	the	DT	_	12	det	***
+12	glades	glade	NNS	_	9	nmod	***
+13	of	of	IN	_	16	case	***
+14	the	the	DT	_	16	det	***
+15	New	New	NNP	_	16	compound	***
+16	Forest	Forest	NNP	_	12	nmod	***
+17	or	or	CC	_	16	cc	***
+18	the	the	DT	_	19	det	***
+19	shingle	shingle	NN	_	16	conj	***
+20	of	of	IN	_	21	case	***
+21	Southsea	Southsea	NNP	_	19	nmod	***
+22	.	.	.	_	5	punct	***
+
+1	A	a	DT	_	4	det	_	_	_	
+2	depleted	deplete	VBN	_	4	amod	_	_	_	
+3	bank	bank	NN	_	4	compound	_	_	_	
+4	account	account	NN	_	6	nsubj	_	_	_	
+5	had	have	VBD	_	6	aux	_	_	_	
+6	caused	cause	VBN	_	0	ROOT	_	_	_	
+7	me	I	PRP	_	6	dobj	_	_	_	
+8	to	to	TO	_	9	mark	_	_	_	
+9	postpone	postpone	VB	_	6	xcomp	_	_	_	
+10	my	my	PRP$	_	11	nmod:poss	_	_	_	
+11	holiday	holiday	NN	_	9	dobj	_	_	_	
+12	,	,	,	_	6	punct	_	_	_	
+13	and	and	CC	_	6	cc	_	_	_	
+14	as	as	IN	_	17	case	_	_	_	
+15	to	to	TO	_	17	case	_	_	_	
+16	my	my	PRP$	_	17	nmod:poss	_	_	_	
+17	companion	companion	NN	_	25	nmod	_	_	_	
+18	,	,	,	_	17	punct	_	_	_	
+19	neither	neither	CC	_	21	cc:preconj	neither	_	_	
+20	the	the	DT	_	21	det	_	the	_	
+21	country	country	NN	_	17	conj	_	country	_	
+22	nor	nor	CC	_	17	cc	nor	_	_	
+23	the	the	DT	_	24	det	_	the	_	
+24	sea	sea	NN	_	17	conj	_	sea	_	
+25	presented	present	VBD	_	6	conj	_	presented	_	
+26	the	the	DT	_	28	det	_	the	_	
+27	slightest	slightest	JJS	_	28	amod	_	slightest	_	
+28	attraction	attraction	NN	_	25	dobj	_	attraction	_	
+29	to	to	TO	_	30	case	_	to	_	
+30	him	he	PRP	_	25	nmod	_	him	_	
+31	.	.	.	_	6	punct	_	_	_	
+
+1	After	after	IN	_	3	case	_	_	_	_	_	_	
+2	his	he	PRP$	_	3	nmod:poss	_	_	_	_	_	_	
+3	habit	habit	NN	_	5	nmod	_	_	_	_	_	_	
+4	he	he	PRP	_	5	nsubj	_	he	_	_	_	_	
+5	said	say	VBD	_	0	ROOT	_	said	_	_	_	_	
+6	nothing	nothing	NN	_	5	dobj	nothing	_	_	_	_	_	
+7	,	,	,	_	6	punct	_	_	_	_	_	_	
+8	and	and	CC	_	6	cc	_	_	_	_	_	_	
+9	after	after	IN	_	10	case	_	_	_	_	_	_	
+10	mine	mine	NN	_	12	nmod	_	_	_	_	_	_	
+11	I	I	PRP	_	12	nsubj	_	_	_	_	I	_	
+12	asked	ask	VBD	_	6	conj	_	_	_	_	asked	_	
+13	no	no	DT	_	14	neg	_	_	_	no	_	_	
+14	questions	question	NNS	_	12	dobj	_	_	_	_	questions	_	
+15	.	.	.	_	5	punct	_	_	_	_	_	_	
+
