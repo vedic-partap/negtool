@@ -49,22 +49,22 @@
 25	package	package	NN	_	20	nmod	_	_	_	
 26	.	.	.	_	14	punct	_	_	_	
 
-1	It	it	PRP	_	7	nsubj	***
-2	is	be	VBZ	_	7	cop	***
-3	,	,	,	_	7	punct	***
-4	however	however	RB	_	7	advmod	***
-5	,	,	,	_	7	punct	***
-6	unfortunately	unfortunately	RB	_	7	advmod	***
-7	impossible	impossible	JJ	_	0	ROOT	***
-8	entirely	entirely	RB	_	7	advmod	***
-9	to	to	TO	_	10	mark	***
-10	separate	separate	VB	_	7	xcomp	***
-11	the	the	DT	_	12	det	***
-12	sentational	sentational	NN	_	10	dobj	***
-13	from	from	IN	_	15	case	***
-14	the	the	DT	_	15	det	***
-15	criminal	criminal	JJ	_	10	nmod	***
-16	.	.	.	_	7	punct	***
+1	It	it	PRP	_	7	nsubj	_	_	_	_	It	_	
+2	is	be	VBZ	_	7	cop	_	_	_	_	is	_	
+3	,	,	,	_	7	punct	_	_	_	_	_	_	
+4	however	however	RB	_	7	advmod	_	_	_	_	_	_	
+5	,	,	,	_	7	punct	_	_	_	_	_	_	
+6	unfortunately	unfortunately	RB	_	7	advmod	un	fortately	_	_	unfortunately	_	
+7	impossible	impossible	JJ	_	0	ROOT	_	impossible	_	im	possible	_	
+8	entirely	entirely	RB	_	7	advmod	_	entirely	_	_	entirely	_	
+9	to	to	TO	_	10	mark	_	to	_	_	to	_	
+10	separate	separate	VB	_	7	xcomp	_	separate	_	_	separate	_	
+11	the	the	DT	_	12	det	_	the	_	_	the	_	
+12	sentational	sentational	NN	_	10	dobj	_	sentational	_	_	sentational	_	
+13	from	from	IN	_	15	case	_	from	_	_	from	_	
+14	the	the	DT	_	15	det	_	the	_	_	the	_	
+15	criminal	criminal	JJ	_	10	nmod	_	criminal	_	_	criminal	_	
+16	.	.	.	_	7	punct	_	_	_	_	_	_	
 
 1	It	it	PRP	_	6	nsubj	***
 2	was	be	VBD	_	6	cop	***
@@ -76,13 +76,13 @@
 8	August	August	NNP	_	6	nmod	***
 9	.	.	.	_	6	punct	***
 
-1	But	but	CC	_	6	cc	***
-2	the	the	DT	_	4	det	***
-3	morning	morning	NN	_	4	compound	***
-4	paper	paper	NN	_	6	nsubj	***
-5	was	be	VBD	_	6	cop	***
-6	uninteresting	uninteresting	JJ	_	0	ROOT	***
-7	.	.	.	_	6	punct	***
+1	But	but	CC	_	6	cc	_	_	_	
+2	the	the	DT	_	4	det	_	_	_	
+3	morning	morning	NN	_	4	compound	_	_	_	
+4	paper	paper	NN	_	6	nsubj	_	paper	_	
+5	was	be	VBD	_	6	cop	_	was	_	
+6	uninteresting	uninteresting	JJ	_	0	ROOT	un	interesting	_	
+7	.	.	.	_	6	punct	_	_	_	
 
 1	Everybody	everybody	NN	_	5	nsubj	***
 2	was	be	VBD	_	5	cop	***

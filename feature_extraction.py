@@ -18,7 +18,7 @@ def extract_features_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon, mode=
         for key, value in sent.iteritems():
             features = {}
             if isinstance(key, int):
-                if not known_cue_word(value[3].lower(), cue_lexicon, affixal_cue_lexicon):
+                if not_known_cue_word(value[3].lower(), cue_lexicon, affixal_cue_lexicon):
                     sent[key]['not-pred-cue'] = True
                     continue
 

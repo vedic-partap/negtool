@@ -210,8 +210,8 @@ def count_multiword_cues(sentence, labels):
 
     return mwc_counter, has_mwc
 
-def known_cue_word(token, cue_lexicon, affixal_cue_lexicon):
-    return token in cue_lexicon and get_affix_cue(token, affixal_cue_lexicon) == None
+def not_known_cue_word(token, cue_lexicon, affixal_cue_lexicon):
+    return (not token in cue_lexicon) and get_affix_cue(token, affixal_cue_lexicon) == None
 
 def in_scope_token(token_label, cue_type):
     return token_label == 0 or token_label == 2 or (token_label == 3 and cue_type == 'a')
