@@ -1,0 +1,40 @@
+1	Suddenly	Suddenly	CPOS	RB	FEATS	3	advmod	***
+2	he	he	CPOS	PRP	FEATS	3	nsubj	***
+3	turned	turn	CPOS	VBD	FEATS	0	root	***
+4	upon	upon	CPOS	IN	FEATS	5	case	***
+5	me	me	CPOS	PRP	FEATS	3	nmod:upon	***
+6	with	with	CPOS	IN	FEATS	9	case	***
+7	a	a	CPOS	DT	FEATS	9	det	***
+8	mischievous	mischievous	CPOS	JJ	FEATS	9	amod	***
+9	twinkle	twinkle	CPOS	NN	FEATS	3	nmod:with	***
+10	in	in	CPOS	IN	FEATS	12	case	***
+11	his	his	CPOS	PRP$	FEATS	12	nmod:poss	***
+12	eyes	eye	CPOS	NNS	FEATS	9	nmod:in	***
+13	.	.	CPOS	.	FEATS	3	punct	***
+
+1	No	No	CPOS	DT	FEATS	2	neg	No	_	_	
+2	woman	woman	CPOS	NN	FEATS	5	nsubj	_	woman	_	
+3	would	would	CPOS	MD	FEATS	5	aux	_	would	_	
+4	ever	ever	CPOS	RB	FEATS	5	advmod	_	ever	_	
+5	send	send	CPOS	VB	FEATS	0	root	_	send	_	
+6	a	a	CPOS	DT	FEATS	8	det	_	a	_	
+7	reply-paid	reply-paid	CPOS	JJ	FEATS	8	amod	_	reply-paid	_	
+8	telegram	telegram	CPOS	NN	FEATS	5	dobj	_	telegram	_	
+9	.	.	CPOS	.	FEATS	5	punct	_	_	_	
+
+1	After	After	CPOS	IN	FEATS	3	case	_	_	_	_	_	_	
+2	his	his	CPOS	PRP$	FEATS	3	nmod:poss	_	_	_	_	_	_	
+3	habit	habit	CPOS	NN	FEATS	5	nmod:after	_	_	_	_	_	_	
+4	he	he	CPOS	PRP	FEATS	5	nsubj	_	he	_	_	_	_	
+5	said	say	CPOS	VBD	FEATS	0	root	_	said	_	_	_	_	
+6	nothing	nothing	CPOS	NN	FEATS	5	dobj	nothing	_	_	_	_	_	
+7	,	,	CPOS	,	FEATS	5	punct	_	_	_	_	_	_	
+8	and	and	CPOS	CC	FEATS	5	cc	_	_	_	_	_	_	
+9	after	after	CPOS	IN	FEATS	10	case	_	_	_	_	_	_	
+10	mine	mine	CPOS	NN	FEATS	12	nmod:after	_	_	_	_	_	_	
+11	I	I	CPOS	PRP	FEATS	12	nsubj	_	_	_	_	I	_	
+12	asked	ask	CPOS	VBD	FEATS	5	conj:and	_	_	_	_	asked	_	
+13	no	no	CPOS	DT	FEATS	14	neg	_	_	_	no	_	_	
+14	questions	question	CPOS	NNS	FEATS	12	dobj	_	_	_	_	questions	_	
+15	.	.	CPOS	.	FEATS	5	punct	_	_	_	_	_	_	
+
