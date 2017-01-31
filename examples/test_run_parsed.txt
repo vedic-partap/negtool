@@ -1,1 +1,0 @@
-Martines-MacBook-Pro:negtool martineenger$ python negtool.py -m parsed -f test_input.txt
