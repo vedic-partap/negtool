@@ -5,7 +5,7 @@ def read_file(filename):
     Read input file and make dictionaries for each sentence. 
     Used for training with the CD dataset.
     """
-    with open(filename, 'r') as infile1:
+    with open(filename, 'r') as infile:
         sentence = {}
         cues = []
         mw_cues = []
@@ -20,7 +20,7 @@ def read_file(filename):
         cue_offset = upper_limit - 5
         instances = []
 
-        for line in infile1:
+        for line in infile:
             token_dict = {}
             tokens = line.split()
             #check for sentence end
@@ -49,6 +49,7 @@ def read_file(filename):
                 instances.append(sentence)
                 sentence = {}
                 counter = 0
+                cue_counter = 0
                 prev_cue_column = -1
                 cues = []
                 mw_cues = []
@@ -67,14 +68,14 @@ def read_file(filename):
                         if cues[-1][2] == 'm':
                             mw_cues.append([cues[-1][0],cues[-1][1]])
                         mw_cues.append([tokens[i], counter])
-                    elif tokens[i] != tokens[3]:
+                    elif tokens[i] != tokens[1]:
                         cues.append([tokens[i], counter, 'a'])
                         prev_cue_column = i
                     else:
                         cues.append([tokens[i], counter, 's'])
                         prev_cue_column = i
                 elif tokens[i] != "***" and tokens[i] != "_" and i > upper_limit and (i-cue_offset-1) % 3 == 0:
-                    cue_counter = (i-upper_limit+2)/3
+                    cue_counter = (i-upper_limit+2)/3 - 1
                     if cue_counter in scopes:
                         scopes[cue_counter].append([tokens[i], counter])
                     else:

@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn.feature_extraction import DictVectorizer
 import sklearn.metrics as metrics
 from pystruct.models import ChainCRF
 from pystruct.learners import FrankWolfeSSVM
@@ -69,7 +68,7 @@ def extract_labels_cue(sentence_dicts, cue_lexicon, affixal_cue_lexicon):
     for sent in sentence_dicts:
         for key, value in sent.iteritems():
             if isinstance(key, int):
-                if not known_cue_word(value[3].lower(), cue_lexicon, affixal_cue_lexicon):
+                if not_known_cue_word(value[3].lower(), cue_lexicon, affixal_cue_lexicon):
                     continue
                 if any(cue_position == key for (cue, cue_position, cue_type) in sent['cues']) or any(mw_pos == key for (mw_cue, mw_pos) in sent['mw_cues']):
                     labels.append(1)
