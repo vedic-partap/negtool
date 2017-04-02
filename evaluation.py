@@ -187,5 +187,3 @@ if __name__ == '__main__':
     else:
         test_scope_model(scope_model, scope_vectorizer, args.testfile, args.fileformat, args.cdfile)
 
-
-
