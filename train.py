@@ -11,6 +11,7 @@ from feature_extraction import extract_features_scope, extract_features_cue
 from utils import *
 from file_writing import *
 from read_labelled_data import read_file
+from negtool import run_cue_learner, run_scope_learner
 
 def train_cue_learner(sentence_dicts, C_value):
     cue_lexicon, affixal_cue_lexicon = get_cue_lexicon(sentence_dicts)
@@ -50,16 +51,13 @@ if __name__ == '__main__':
     argparser.add_argument('-sp', '--scopeparameter', help="regularisation parameter for the scope model", type=float, nargs="?", default=0.20)
     args = argparser.parse_args()
 
-    print "lese inn setninger"
     sentence_dicts = read_file(args.trainingfile)
     filename = args.trainingfile.split(".")[0]
     if args.model == 'cue' or args.model == 'all':
-        print "trener cue"
         cue_ssvm, cue_vectorizer, cue_lexicon, affixal_cue_lexicon = train_cue_learner(sentence_dicts, args.scopeparameter)
         save_cue_learner(cue_ssvm, cue_vectorizer, cue_lexicon, affixal_cue_lexicon, filename)
 
     if args.model == 'scope' or args.model == 'all':
-        print "trener scope"
         scope_ssvm, scope_vectorizer = train_scope_learner(sentence_dicts, 0.20)
         save_scope_learner(scope_ssvm, scope_vectorizer, filename)
 
