@@ -1,5 +1,5 @@
 # negtool
-A tool for detecting negation cues and scopes in natural language text.
+A tool for detecting negation cues and scopes in natural language text, as described in the paper *An open-source tool for negation detection: a maximum-margin approach* ([pdf](http://www.aclweb.org/anthology/W/W17/W17-1810.pdf)) by M. Enger, E. Velldal \& L. Øvrelid, presented at the 2017 [SemBEaR](http://www.cse.unt.edu/sembear2017/) workshop([slides](http://www.velldal.net/erik/talks/sembear2017.pdf)). 
 
 ## Dependencies
 In order to use negtool, the following libraries need to be installed:
