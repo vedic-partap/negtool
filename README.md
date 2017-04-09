@@ -1,5 +1,5 @@
 # negtool
-A tool for detecting negation cues and scopes in natural language text, as described in the paper *An open-source tool for negation detection: a maximum-margin approach* ([pdf](http://www.aclweb.org/anthology/W/W17/W17-1810.pdf)) by M. Enger, E. Velldal \& L. Øvrelid, presented at the 2017 [SemBEaR](http://www.cse.unt.edu/sembear2017/) workshop([slides](http://www.velldal.net/erik/talks/sembear2017.pdf)). 
+A tool for detecting negation cues and scopes in natural language text, as described in the paper *An open-source tool for negation detection: a maximum-margin approach* ([pdf](http://www.aclweb.org/anthology/W/W17/W17-1810.pdf)) by M. Enger, E. Velldal \& L. Øvrelid, presented at the 2017 [SemBEaR](http://www.cse.unt.edu/sembear2017/) workshop ([slides](http://www.velldal.net/erik/talks/sembear2017.pdf)). 
 
 ## Dependencies
 In order to use negtool, the following libraries need to be installed:
@@ -49,3 +49,18 @@ The file format argument accepts either "CD" for Conan Doyle files or "parsed" f
 If you want to evaluate end-to-end predictions, set the -e2e argument to true. If you want to evaluate scopes with gold cues, set the -e2e argument to false. 
 
 The output will be a file on the CD format (for every column, not just the cue columns) named "<input filename>_evaluation_scopes.txt". 
+
+## Citing
+Please cite the following paper if you use the tool:
+```
+@InProceedings{Enger17,
+  author    = {Enger, Martine  and  Velldal, Erik  and  {\O}vrelid, Lilja},
+  title     = {An open-source tool for negation detection: a maximum-margin approach},
+  booktitle = {Proceedings of the Workshop Computational Semantics Beyond Events and Roles},
+  month     = {April},
+  year      = {2017},
+  address   = {Valencia, Spain},
+  publisher = {Association for Computational Linguistics},
+  pages     = {64--69}
+}
+```
