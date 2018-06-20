@@ -13,6 +13,11 @@ To run negtool with raw text, you need to have CoreNLP installed. Run the tool w
 
 `python negtool.py -m raw -f <inputfile> -d <absolute path to corenlp>`
 
+## Convert the CoNLL output to JSON ## 
+
+`python convert_CoNLL_2_JSON.py <CoNLL output from negtool> `
+
+
 ## Running the tool with parsed text
 To run the tool with a parsed input file, the format of the file needs to be CoNLL_X, with the following information encoded: 
 
@@ -26,8 +31,6 @@ To run the tool with a parsed input file, the format of the file needs to be CoN
 Run the tool with the command
 
 `python negtool.py -m parsed -f <inputfile>`
-to convert the CoNLL output to JSON 
-`python convert_CoNLL_2_JSON.py <CoNLL output from negtool> `
 
 ## Output
 
