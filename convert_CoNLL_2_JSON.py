@@ -23,7 +23,6 @@ for lines in text.split('\n'):
 		entry = {'sentence':sentence,'negation':[]}
 		if len(lines_list)>0:
 			count_cues = (len(lines_list[0])-8)/3
-			print(count_cues)
 			for i in range(int(count_cues)):
 				cue =''
 				scope=''
