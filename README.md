@@ -26,6 +26,8 @@ To run the tool with a parsed input file, the format of the file needs to be CoN
 Run the tool with the command
 
 `python negtool.py -m parsed -f <inputfile>`
+to convert the CoNLL output to JSON 
+`python convert_CoNLL_2_JSON.py <CoNLL output from negtool> `
 
 ## Output
 
